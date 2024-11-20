@@ -1,0 +1,49 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/Okra-Bold.ttf",
+      "sha1": "fef01f34e3de57171aaef4d21430736a97a57e83"
+    },
+    {
+      "path": "src/assets/fonts/Okra-ExtraBold.ttf",
+      "sha1": "adb4b210b7bd6d118afc77ab7267aa6eb5af2477"
+    },
+    {
+      "path": "src/assets/fonts/Okra-Medium.ttf",
+      "sha1": "08cb46edd036cd9c7d5fb56ee346bf41cc75d26e"
+    },
+    {
+      "path": "src/assets/fonts/Okra-MediumLight.ttf",
+      "sha1": "aceb493dbf84ad53714a4ea5145b3258bc78907d"
+    },
+    {
+      "path": "src/assets/fonts/Okra-Regular.ttf",
+      "sha1": "add9f3d25f9629e6b375eb5cf4f33d5c3554d75c"
+    },
+    {
+      "path": "src/assets/fonts/OpenSans-Bold.ttf",
+      "sha1": "953814da1b753763dfa5a7ecc18bdbb14890e16b"
+    },
+    {
+      "path": "src/assets/fonts/OpenSans-ExtraBold.ttf",
+      "sha1": "3a02724d19fdb3c67b174be7a789757a194ee2ff"
+    },
+    {
+      "path": "src/assets/fonts/OpenSans-Light.ttf",
+      "sha1": "9292ee344b331c5959c7b130d1a2df5543dfa58a"
+    },
+    {
+      "path": "src/assets/fonts/OpenSans-Medium.ttf",
+      "sha1": "a44dcac0388d78404b84578f3e593c740399ebb5"
+    },
+    {
+      "path": "src/assets/fonts/OpenSans-Regular.ttf",
+      "sha1": "76ea5d4c70539ad9b0e7faf7e4fbe3bae8a961c7"
+    },
+    {
+      "path": "src/assets/fonts/OpenSans-SemiBold.ttf",
+      "sha1": "9b1adfbc773bb8bd1e6c4ca85c34441a43c2bc54"
+    }
+  ]
+}

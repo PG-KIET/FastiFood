@@ -1,0 +1,15 @@
+<resources>
+    <!-- Full-Screen App Theme with Transparent StatusBar -->
+    <style name="AppTheme.NoTitleBar.Fullscreen" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <!-- Giữ thanh trạng thái luôn hiển thị -->
+        <item name="android:windowFullscreen">false</item> <!-- Không bật chế độ toàn màn hình -->
+        <item name="android:windowNoTitle">true</item> <!-- Không ẩn title bar -->
+
+        <!-- Nội dung không bị che khuất -->
+        <item name="android:fitsSystemWindows">true</item>
+
+        <!-- Thanh điều hướng vẫn hiển thị và trong suốt -->
+        <item name="android:navigationBarColor">#00000000</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+    </style>
+</resources>
