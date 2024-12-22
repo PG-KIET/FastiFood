@@ -1,4 +1,19 @@
-pluginManagement { includeBuild("../node_modules/@react-native/gradle-plugin") }
+pluginManagement { 
+    includeBuild("../node_modules/@react-native/gradle-plugin") 
+    repositories {
+            // Các kho đã có sẵn
+            mavenCentral()
+            google()
+            // Thêm Mapbox Maven repository
+            maven {
+                url = uri("https://api.mapbox.com/downloads/v2/releases/maven")
+                credentials {
+                    username = "mapbox" // Sử dụng username mặc định của Mapbox
+                    password = "pk.eyJ1IjoiaGVucnlmb3VyLTEyMyIsImEiOiJjbTRmNGZ2OHoweXp2MmxzOHMwZWI1c251In0.hRq9WXUPMDND2Leyv0s3wA" // Thay bằng token bạn tạo ở Mapbox
+                }
+            }
+    }
+}
 plugins { id("com.facebook.react.settings") }
 extensions.configure(com.facebook.react.ReactSettingsExtension){ ex -> ex.autolinkLibrariesFromCommand() }
 rootProject.name = 'fastifood'

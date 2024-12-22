@@ -11,11 +11,11 @@ const SearchBar:FC = () => {
     <TouchableOpacity style={styles.container} activeOpacity={0.8}>
       <Icon name='search' color={Colors.text} size={RFValue(20)}/>
       <RollingBar interval={3000} defaultStyle={false} customStyle={styles.textContainer}>
-        <CustomText variant='h6' fontFamily={Fonts.Medium}> Search "milk"</CustomText>
-        <CustomText variant='h6' fontFamily={Fonts.Medium}> Search "sweets"</CustomText>
-        <CustomText variant='h6' fontFamily={Fonts.Medium}> Search "chips"</CustomText>
-        <CustomText variant='h6' fontFamily={Fonts.Medium}> Search "pooja thali"</CustomText>
-        <CustomText variant='h6' fontFamily={Fonts.Medium}> Search for ata, dal, coke</CustomText>
+        <CustomText variant='h6' fontFamily={Fonts.Medium}> Tìm kiếm "food"</CustomText>
+        <CustomText variant='h6' fontFamily={Fonts.Medium}> Tìm kiếm "drink"</CustomText>
+        <CustomText variant='h6' fontFamily={Fonts.Medium}> Tìm kiếm "chips"</CustomText>
+        <CustomText variant='h6' fontFamily={Fonts.Medium}> Tìm kiếm "snack"</CustomText>
+        <CustomText variant='h6' fontFamily={Fonts.Medium}> Tìm kiếm "fast food"</CustomText>
       </RollingBar>
       <View style={styles.divider}/>
       <Icon name='mic' color={Colors.text} size={RFValue(20)}/>

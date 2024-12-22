@@ -114,43 +114,43 @@ const productsList =
 export const categories = [
     {
         id: 1,
-        name: "Milk, Curd & Paneer",
+        name: "Món Việt",
         image: require('../assets/category/1.png'),
         products: productsList
     },
     {
         id: 2,
-        name: "Pharma & Wellness",
+        name: "Món Hàn",
         image: require('../assets/category/2.png')
     },
     {
         id: 3,
-        name: "Vegetables & Fruits",
+        name: "Món Nhật",
         image: require('../assets/category/3.png')
     },
     {
         id: 4,
-        name: "Munchies",
+        name: "Món Âu",
         image: require('../assets/category/4.png')
     },
     {
         id: 5,
-        name: "Home & Office",
+        name: "Đồ uống",
         image: require('../assets/category/5.png')
     },
     {
         id: 6,
-        name: "Baby Care",
+        name: "Đồ chay",
         image: require('../assets/category/6.png')
     },
     {
         id: 7,
-        name: "Ata, Rice & Dal",
+        name: "Đồ tráng miệng",
         image: require('../assets/category/7.png')
     },
     {
         id: 8,
-        name: "Cleaning Essentials",
+        name: "Đồ ăn nhanh",
         image: require('../assets/category/8.png')
     },
 ]

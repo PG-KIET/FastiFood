@@ -1,6 +1,8 @@
 import "dotenv/config";
 import {Customer, DeliveryPartner} from '../../models/user.js'; 
 import jwt from "jsonwebtoken"
+import bcrypt from "bcrypt";
+
 
 const generateToken = (user) => {
     const accessToken = jwt.sign(
@@ -20,32 +22,60 @@ const generateToken = (user) => {
 
 export const loginCustomer = async (req, reply) => {
     try {
-        const {phone} = req.body;
-        let customer = await Customer.findOne({phone});
-
-        if (!customer) {
-            customer = new Customer({
-                phone,
-                role: "Customer",
-                isActivated: true
-            })
-
-            await customer.save();
+        const { phone, password } = req.body;
+        if (!password) {
+            return reply.status(400).send({ message: "Password is required" });
         }
 
-        const {accessToken, refreshToken} = generateToken(customer);
+        let customer = await Customer.findOne({ phone });
+
+        if (!customer) {
+            console.log("Plain password:", password);
+            const hashedPassword = await bcrypt.hash(password, 10); 
+            console.log("Hashed password:", hashedPassword);
+            
+            customer = new Customer({
+                phone,
+                password: hashedPassword,
+                role: "Customer",
+                isActivated: true,
+            });
+        
+            await customer.save();
+
+            const { accessToken, refreshToken } = generateToken(customer);
+
+            return reply.send({
+                message: "Customer created and logged in",
+                accessToken,
+                refreshToken,
+                customer,
+            });
+        }
+
+        const isPasswordValid = await bcrypt.compare(password, customer.password);
+        console.log("Password Match:", isPasswordValid);
+
+        if (!isPasswordValid) {
+            return reply.status(401).send({ message: "Invalid password" });
+        }
+
+        // Tạo token
+        const { accessToken, refreshToken } = generateToken(customer);
 
         return reply.send({
-            message:customer ? "Login Successful" : "Customer create and loggin in",
+            message: "Login successful",
             accessToken,
             refreshToken,
             customer,
-        })
+        });
 
     } catch (error) {
-        return reply.status(500).send({message: "An erroe occurred", error})
-    }
+    console.error("Error during login:", error);
+    return reply.status(500).send({ message: "An error occurred", error: error.message || error });
 }
+
+};
 
 export const loginDeliveryPartner = async (req, reply) => {
     try {

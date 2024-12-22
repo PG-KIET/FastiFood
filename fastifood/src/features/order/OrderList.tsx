@@ -15,8 +15,8 @@ const OrderList = () => {
                 <Image source={require('@assets/icons/clock.png')} style={styles.img}/>             
             </View>
             <View>
-                <CustomText variant='h5' fontFamily={Fonts.SemiBold}>Delivery in 9 minute</CustomText>
-                <CustomText variant='h5' style={{opacity: 0.5}} fontFamily={Fonts.SemiBold}>Shipment of {totalItems || 0} item</CustomText>
+                <CustomText variant='h5' fontFamily={Fonts.SemiBold}>Giao hàng trong 9 phút</CustomText>
+                <CustomText variant='h5' style={{opacity: 0.5}} fontFamily={Fonts.SemiBold}>giao hàng {totalItems || 0} sản phẩm</CustomText>
             </View>
         </View>
 

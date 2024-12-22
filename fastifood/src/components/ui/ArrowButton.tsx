@@ -27,7 +27,7 @@ const ArrowButton: FC<ArrowButtonProps> = ({
       {price != 0 && price && 
         <View>
             <CustomText variant='h7' style={{color: 'white'}} fontFamily={Fonts.Medium}>
-                ${price + 34}
+                {price + 18000}đ
             </CustomText>
            
         </View>}

@@ -16,6 +16,8 @@ end
 
 target 'fastifood' do
   config = use_native_modules!
+  #GG MAP CONFIG
+  pod 'GoongMapSDK', '~> 1.0.0'
 
   use_react_native!(
     :path => config[:reactNativePath],

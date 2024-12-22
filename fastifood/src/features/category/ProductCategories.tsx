@@ -3,7 +3,7 @@ import { Colors } from '@utils/Constants';
 import React, { FC, useEffect, useState } from 'react';
 import {ActivityIndicator, StyleSheet, Text, View} from 'react-native';
 import SideBar from './SideBar';
-import { getAllCategories, getProductByCategoryId } from '@service/productService';
+import { getAllCategories, getProductByCategoryId, searchProductByName } from '@service/productService';
 import ProductList from './ProductList';
 import withCart from '@features/cart/WithCart';
 
@@ -14,7 +14,7 @@ const ProductCategories:FC = () => {
     const [product, setProducts] = useState<any[]>([])
     const [categoriesLoading, setCategoriesLoading] = useState<boolean>(true)
     const [productLoading, setProductsLoading] = useState<boolean>(false)
-    
+    const [searchQuery, setSearchQuery] = useState<string>('');
 
     const fetchCategories = async() => {
         try {
@@ -55,9 +55,26 @@ const ProductCategories:FC = () => {
         }
     },[selectedCategories]);
 
+    const handleSearch = async (query: string) => {
+        try {
+          setProductsLoading(true);
+          const results = await searchProductByName(query);
+          setProducts(results);
+        } catch (error) {
+          console.log('Error searching products', error);
+        } finally {
+          setProductsLoading(false);
+        }
+      };
+
     return (
         <View style={styles.mainContainer}>
-            <CustomHeader title={selectedCategories?.name || "Categories"} search/>
+            <CustomHeader  title={selectedCategories?.name || "Categories"} 
+            search 
+            onSearch={(query) => {
+                // setSearchQuery(query);
+                handleSearch(query);
+                }}/>
             <View style={styles.subContainer}>
                 {categoriesLoading ? (<ActivityIndicator size='small' color={Colors.border}/>): 
                 (

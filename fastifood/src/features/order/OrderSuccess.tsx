@@ -31,11 +31,11 @@ const OrderSuccess:FC = () => {
                 hardwareAccelerationAndroid
             />
             <CustomText variant='h8' fontFamily={Fonts.SemiBold} style={styles.orderPlaceText}>
-                ORDER PLACE
+                 ĐẶT HÀNG
             </CustomText>
             <View style={styles.deliveryContainer}>
                 <CustomText variant='h4' fontFamily={Fonts.SemiBold} style={styles.deliveryText}>
-                    Delivery To Home
+                Giao hàng tận nhà
                 </CustomText>
             </View>          
             <CustomText variant='h7' style={styles.addressText} fontFamily={Fonts.Medium}>

@@ -47,8 +47,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         paddingHorizontal: screenWidth*0.05,
         paddingBottom: screenHeight*0.03,
-        paddingTop: screenHeight*0.014,
-        marginBottom: 37
+        paddingTop: screenHeight*0.014
     },
     flexRowGap:{
         alignItems: 'center',

@@ -72,11 +72,10 @@ export const confirmOrder = async (req, reply) => {
         order.deliveryPersonLocation = {
             latitude: deliveryPersonLocation?.latitude,
             longitude: deliveryPersonLocation?.longitude,
-            address: deliveryPersonLocation.address || "No address available"
+            address: deliveryPersonLocation?.address || "No address available"
         }
 
         req.app.io.to(orderId).emit('orderConfirmed', order)
-
 
         await order.save()
 
@@ -167,10 +166,9 @@ export const getOrders = async (req, reply) => {
 export const getOrdersById = async (req, reply) => {
     try {
         const { orderId } = req.params
-        
        
         const order = await Order.findById(orderId).populate(
-            "Customer branch items.item deliveryPartner"
+            "customer branch items.item deliveryPartner"
         )
 
         if (!order) {

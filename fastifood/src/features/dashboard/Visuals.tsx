@@ -23,13 +23,6 @@ const Visuals: FC = () => {
         source={require('@assets/images/cloud.png')}
         style={styles.cloud}
       />
-      <LottieView
-        autoPlay={true}
-        enableMergePathsAndroidForKitKatAndAbove={true}
-        loop={true}
-        style={styles.lottie}
-        source={require('@assets/animations/raining.json')}
-      />
     </Animated.View>
   );
 };

@@ -26,24 +26,25 @@ const CustomerLogin: FC = () => {
     const keyboardOffsetHeight = useKeyboardOffsetHeight()
 
 
-    const animatedValue = useRef(new Animated.Value(0)).current
+    const animatedValue = useRef(new Animated.Value(0)).current;
 
-    useEffect(()=>{
-        if (keyboardOffsetHeight == 0) {
+
+    useEffect(() => {
+        if (keyboardOffsetHeight === 0) {
             Animated.timing(animatedValue, {
-                toValue: 0,
+                toValue: 0, 
                 duration: 500,
                 useNativeDriver: true,
             }).start();
-        }
-        else {
+        } else {
             Animated.timing(animatedValue, {
-                toValue: -keyboardOffsetHeight * 0.84,
-                duration: 1000,
+                toValue: -keyboardOffsetHeight * 0.1, 
+                duration: 500, 
                 useNativeDriver: true,
             }).start();
         }
-    },[keyboardOffsetHeight])
+    }, [keyboardOffsetHeight]); 
+    
 
 
     const handleAuth = async() => {
@@ -75,7 +76,6 @@ const CustomerLogin: FC = () => {
         const newSequence = [...gestureSequence, direction].slice(-5);
         setGestureSequence(newSequence);
 
-        console.log(newSequence)
         if (newSequence.join(' ') === 'up up down left right') {
             setGestureSequence([]);
             resetAndNavigate('DeliveryLogin');
@@ -83,6 +83,7 @@ const CustomerLogin: FC = () => {
         }
     };
 
+    
   return (
     <GestureHandlerRootView style={styles.container}>
       <View style={styles.container}>
@@ -103,13 +104,13 @@ const CustomerLogin: FC = () => {
                   style={styles.logo}
                 />
                 <CustomText variant="h2" fontFamily={Fonts.Bold}>
-                  Henry's last minute app{' '}
+                  Henry's app{' '}
                 </CustomText>
                 <CustomText
                   variant="h5"
                   fontFamily={Fonts.SemiBold}
                   style={styles.text}>
-                  Login or Sign up
+                  Đăng nhập hoặc Đăng ký
                 </CustomText>
                 <CustomInput
                   onChangeText={text => {
@@ -127,7 +128,7 @@ const CustomerLogin: FC = () => {
                       +84
                     </CustomText>
                   }
-                  placeholder="Enter phone number"
+                  placeholder="Nhập số điện thoại"
                   inputMode="numeric"
                 />
                 <CustomButton
@@ -144,7 +145,7 @@ const CustomerLogin: FC = () => {
         <View style={styles.footer}>
             <SafeAreaView>
                 <CustomText fontSize={RFValue(9)}>
-                    By Continuing, you agree to our Terms of Service & Privary Policy
+                 Bằng cách Tiếp tục, bạn đồng ý với Điều khoản dịch vụ & Chính sách bảo mật của chúng tôi
                 </CustomText>
             </SafeAreaView>
         </View>

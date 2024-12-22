@@ -1,6 +1,7 @@
 import { authRoutes } from "./auth.js";
 import { orderRoutes } from "./order.js";
-import { categoryRouter, productRouter } from "./product.js";
+import { productRouter } from "./product.js";
+import { categoryRouter } from "./category.js";
 
 const prefix = '/api';
 

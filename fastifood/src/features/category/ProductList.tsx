@@ -12,7 +12,6 @@ const ProductList:FC<{data: any}> = ({data}) => {
         )
     }
 
-
     return (
             <FlatList 
                 data={data} 

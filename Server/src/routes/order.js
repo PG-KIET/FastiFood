@@ -8,8 +8,8 @@ router.use(verifyToken);  // Đảm bảo tất cả các route đều cần xá
 
 router.post("/order", createOrder);
 router.get("/order", getOrders);
-router.patch("/order/:orderId/status", updateOrderStatus);
 router.post("/order/:orderId/confirm", confirmOrder);
 router.get("/order/:orderId", getOrdersById); // Dùng GET cho lấy order theo ID
+router.patch("/order/:orderId/status", updateOrderStatus);
 
 export { router as orderRoutes };

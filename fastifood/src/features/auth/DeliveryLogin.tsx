@@ -44,11 +44,11 @@ const DeliveryLogin: FC = () => {
           </View>
 
           <CustomText variant="h3" fontFamily={Fonts.Bold}>
-            Delivery Partner Portal
+             Cổng thông tin giao hàng
           </CustomText>
 
           <CustomText variant="h6" style={styles.text} fontFamily={Fonts.Bold}>
-            Super fast delivery
+            Giao hàng siêu nhanh
           </CustomText>
           <CustomInput
             onChangeText={setEmail}

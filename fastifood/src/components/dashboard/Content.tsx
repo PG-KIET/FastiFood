@@ -11,19 +11,11 @@ const Content = () => {
     <View style={styles.container}>
       <AdCarousal adData={adData}/>
       <CustomText variant='h5' fontFamily={Fonts.SemiBold}>
-        Grocery & Kitchen
+        Đồ ăn
       </CustomText>
       <CategoryContainer data={categories}/>
       <CustomText variant='h5' fontFamily={Fonts.SemiBold}>
-        Best Sellers
-      </CustomText>
-      <CategoryContainer data={categories}/>
-      <CustomText variant='h5' fontFamily={Fonts.SemiBold}>
-        Snanks & Drinks
-      </CustomText>
-      <CategoryContainer data={categories}/>
-      <CustomText variant='h5' fontFamily={Fonts.SemiBold}>
-        Home & LifeStyle
+        Nước
       </CustomText>
       <CategoryContainer data={categories}/>
     </View>

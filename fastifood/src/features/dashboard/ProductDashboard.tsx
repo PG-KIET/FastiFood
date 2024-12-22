@@ -1,12 +1,10 @@
 import React, {FC, useEffect, useRef} from 'react';
 import {
-  StatusBar,
   View,
   Animated as RNAnimated,
   SafeAreaView,
   StyleSheet,
   Platform,
-  Animated,
   TouchableOpacity,
 } from 'react-native';
 import NoticeAnimation from './NoticeAnimation';
@@ -26,8 +24,9 @@ import CustomText from '@components/ui/CustomText';
 import {RFValue} from 'react-native-responsive-fontsize';
 import {Fonts} from '@utils/Constants';
 import Icon  from 'react-native-vector-icons/Ionicons';
-import { useAnimatedStyle, withTiming } from 'react-native-reanimated';
+import Animated, { useAnimatedStyle, withTiming } from 'react-native-reanimated'
 import withCart from '@features/cart/WithCart';
+import withLiveStatus from '@features/map/WithLiveStatus';
 
 const NOTICE_HEIGHT = -(NoticeHeight + 12);
 
@@ -36,19 +35,22 @@ const ProductDashboard:FC = () => {
     const { scrollY, expand } = useCollapsibleContext();
     const previousScroll = useRef<number>(0);
 
-    const backToTopStyle = useAnimatedStyle(() => {
-        const isScrollingUp = scrollY.value < previousScroll.current; // Kiểm tra xem có cuộn lên không
-        const opacity = withTiming(isScrollingUp && scrollY.value > 180 ? 1 : 0, { duration: 300 });
-        const translateY = withTiming(isScrollingUp ? 0 : 10, { duration: 300 }); // Dịch chuyển nút lên khi cuộn lên
-
-        previousScroll.current = scrollY.value;
-
+    const backToTopStyle = useAnimatedStyle(()=> {
+        const isScrollingUp = scrollY.value < previousScroll.current && scrollY.value>180
+    
+        const opacity = withTiming(isScrollingUp ? 1 : 0,{duration:300})
+        const translateY = withTiming(isScrollingUp ? 0 : 0,{duration:300})
+    
+    
+        previousScroll.current = scrollY.value
+    
         return {
-            opacity,
-            transform: [{ translateY }],
-            zIndex: isScrollingUp ? 1 : -1, // Đảm bảo rằng nút chỉ xuất hiện khi cuộn lên
-        };
-    });
+          opacity,
+          transform: [{ translateY }]
+        }
+      })
+    
+  
 
 
     const noticePosition = useRef(new RNAnimated.Value(NOTICE_HEIGHT)).current;
@@ -83,18 +85,20 @@ const ProductDashboard:FC = () => {
             <Visuals />
             <SafeAreaView />
 
-            {/* <Animated.View style={[styles.backToTopBtn, backToTopStyle]}>
-                <TouchableOpacity onPress={() => {
-                    scrollY.value = 0;
-                    expand()
-                }}
-                 style={{flexDirection: 'row', alignItems: 'center', gap: 6}}>
-                    <Icon name='arrow-up-circle-outline'  color='white' size={RFValue(12)}/>
-                    <CustomText variant='h8' style={{color: 'white'}} fontFamily={Fonts.SemiBold}>
-                        Back To Top
+            <Animated.View style={[styles.backToTopBtn, backToTopStyle]}>
+                <TouchableOpacity
+                    onPress={() => {
+                        scrollY.value = withTiming(0, { duration: 500 }); // Cuộn về đầu trang
+                        expand(); // Gọi hàm mở rộng nếu cần
+                    }}
+                    style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}
+                >
+                    <Icon name="arrow-up-circle-outline" color="white" size={RFValue(12)} />
+                    <CustomText variant="h8" style={{ color: 'white' }} fontFamily={Fonts.SemiBold}>
+                        Cuộn lên
                     </CustomText>
                 </TouchableOpacity>
-            </Animated.View> */}
+            </Animated.View>
 
 
             <CollapsibleContainer style={styles.panelContainer}>
@@ -128,7 +132,7 @@ const ProductDashboard:FC = () => {
                 <CustomText
                     fontFamily={Fonts.Bold}
                     style={{marginTop:10, paddingBottom: 100,opacity: 0.2}}>
-                    Developed by Henry
+                    Được phát triển bởi Phạm Gia Kiệt
                 </CustomText>
                 </View>
             </CollapsibleScrollView>
@@ -156,8 +160,9 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     paddingHorizontal: 10,
     paddingVertical: 5,
-    zIndex: 999
+    zIndex: 999,
+    opacity: 1
   }
 });
 
-export default withCart(withCollapsibleContext(ProductDashboard));
+export default withLiveStatus(withCart(withCollapsibleContext(ProductDashboard)));

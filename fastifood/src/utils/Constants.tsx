@@ -5,7 +5,8 @@ export enum Colors {
     text = '#363636',
     disabled = '#9197a6',
     border = "#d0d4dc",
-    backgroundSecondary = '#f5f6fb'
+    backgroundSecondary = '#f5f6fb',
+    delivery = '#158e27'
 }
 export enum Fonts {
     Regular = 'OpenSans-Regular',

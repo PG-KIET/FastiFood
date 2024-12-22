@@ -21,7 +21,7 @@ const OrderItem:FC<{item: any}> = ({item}) => {
         <View style={{width: '20%', alignItems: 'flex-end'}}>
             <UniversalAdd item={item.item} />
             <CustomText variant='h7' fontFamily={Fonts.Medium} style={{alignSelf:'flex-end', marginTop: 4}}>
-                ${item.count * item.item.price}
+                {item.count * item.item.price}đ
             </CustomText>
         </View>
     </View>

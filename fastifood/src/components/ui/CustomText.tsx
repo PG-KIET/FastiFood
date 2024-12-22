@@ -55,7 +55,7 @@ const CustomText: React.FC<Props> = ({
             computedFontSize = RFValue(fontSize || 12);
             break;
         case 'h7':
-            computedFontSize = RFValue(fontSize || 12);
+            computedFontSize = RFValue(fontSize || 11);
             break;
         case 'h8':
             computedFontSize = RFValue(fontSize || 10);

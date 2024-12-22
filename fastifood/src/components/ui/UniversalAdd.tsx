@@ -16,7 +16,7 @@ const UniversalAdd:FC<{item:any}> = ({item}) => {
             {count === 0 ?
                 <Pressable onPress={()=> addItem(item)} style={styles.add}>
                     <CustomText variant='h7' fontFamily={Fonts.Bold} style={styles.addText}>
-                        ADD
+                        Add
                     </CustomText>
                 </Pressable>    :
                 <View style={styles.counterContainer}>
@@ -38,9 +38,9 @@ const styles = StyleSheet.create({
     container:{
         alignItems: 'center',
         justifyContent: 'center',
-        borderWidth: 2,
+        borderWidth: 2.4,
         borderColor: Colors.secondary,
-        width: 65,
+        width: 55,
         borderRadius: 8
     },
     add:{

@@ -8,6 +8,7 @@ import { admin } from "./src/config/setup.js";
 import { authenticate, COOKIE_PASSWORD, sessionStore } from "./src/config/config.js";
 import { registerRoutes } from "./src/routes/index.js";
 import { Server } from "socket.io";  // Thay đổi ở đây
+import { Dashboard } from "adminjs";
 
 const start = async () => {
     // Kết nối tới cơ sở dữ liệu MongoDB

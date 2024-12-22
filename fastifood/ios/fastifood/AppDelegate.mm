@@ -1,5 +1,5 @@
 #import "AppDelegate.h"
-
+#import <GoogleMaps/GoogleMaps.h>
 #import <React/RCTBundleURLProvider.h>
 
 @implementation AppDelegate
@@ -8,6 +8,8 @@
 {
   self.moduleName = @"fastifood";
   // You can add your custom initial props in the dictionary below.
+  [GMServices provideAPIKey:@"Ng5AqgF6x59fJN2N7YwgP3JmStx22wDef0xwiB9W"];
+
   // They will be passed down to the ViewController used by React Native.
   self.initialProps = @{};
 

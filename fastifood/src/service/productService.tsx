@@ -20,3 +20,14 @@ export const getProductByCategoryId = async (id: string) => {
         return []
     }
 };
+
+export const searchProductByName = async (name: string) => {
+    try {
+      const response = await axios.get(`${BASE_URL}/products/search/${name}`);
+      return response.data;
+    } catch (error) {
+    //   console.error('Search Error: ', error);
+      return [];
+    }
+  };
+  

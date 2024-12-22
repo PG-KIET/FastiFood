@@ -7,7 +7,7 @@ import { appAxios } from "./apiInterceptors";
 
 export const deliveryLogin = async (email: string, password: string) => {
     try {
-
+        console.log('Sending login request to:', `${BASE_URL}/customer/login`);
         const response = await axios.post(`${BASE_URL}/delivery/login`, { email, password });
         const { accessToken, refreshToken, deliveryPartner } = response.data;
         tokenStorage.set('accessToken', accessToken);
@@ -46,6 +46,15 @@ export const refreshUser = async (setUser: any) => {
 
     } catch (error) {
         console.error('Login Error: ', error);  
+    }
+};
+
+export const updateUserLocation = async (data: any, setUser:any) => {
+    try {
+        const response = await appAxios.patch(`/user`, data)
+        refreshUser(setUser)
+    } catch (error) {
+        console.error('updateUserLocation Error: ', error);  
     }
 };
 

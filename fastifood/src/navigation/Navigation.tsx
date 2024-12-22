@@ -12,6 +12,8 @@ import { StyleSheet } from 'react-native';
 import ProductOrder from '@features/order/ProductOrder';
 import OrderSuccess from '@features/order/OrderSuccess';
 import LiveTracking from '@features/map/LiveTracking';
+import Profile from '@features/profile/Profile';
+import DeliveryMap from '@features/delivery/DeliveryMap';
 
 const Stack = createNativeStackNavigator();
 
@@ -22,12 +24,14 @@ const Navigation: FC = () => {
         initialRouteName="SplashScreen"
         screenOptions={{
           headerShown: false,
-          contentStyle: styles.cardStyle,
+         
         }}>
         <Stack.Screen name="SplashScreen" component={SplashScreen} />
+        <Stack.Screen name="Profile" component={Profile} />
         <Stack.Screen name="ProductDashboard" component={ProductDashboard} />
         <Stack.Screen name="ProductCategories" component={ProductCategories} />
         <Stack.Screen name="DeliveryDashboard" component={DeliveryDashboard} />
+        <Stack.Screen name="DeliveryMap" component={DeliveryMap} />
         <Stack.Screen name="ProductOrder" component={ProductOrder} />
         <Stack.Screen name="OrderSuccess" component={OrderSuccess} />
         <Stack.Screen name="LiveTracking" component={LiveTracking} />
@@ -53,7 +57,8 @@ const Navigation: FC = () => {
 
 const styles = StyleSheet.create({
   cardStyle: {
-    marginTop: 25
+    marginTop: 25,
+    marginBottom: 50
   }
 })
 

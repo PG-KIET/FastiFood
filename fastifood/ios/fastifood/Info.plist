@@ -39,6 +39,8 @@
 	<string>Your location is used to show the delivery progress on the map</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
+	<key>vn.goong.api_key</key>
+	<string>Ng5AqgF6x59fJN2N7YwgP3JmStx22wDef0xwiB9W</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>arm64</string>

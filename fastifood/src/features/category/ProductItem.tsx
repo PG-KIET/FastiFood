@@ -18,16 +18,16 @@ const ProductItem:FC<{item:any; index: number}> = ({item, index}) => {
             <View style={styles.content}>
                 <View style={styles.flexRow}>
                     <Image source={require('@assets/icons/clock.png')} style={styles.clockIcon}/>
-                    <CustomText fontSize={RFValue(6)} fontFamily={Fonts.Medium}> 8 Mins</CustomText>
+                    <CustomText fontSize={RFValue(6)} fontFamily={Fonts.Medium}> 8 Phút</CustomText>
                 </View>
 
                 <CustomText variant='h6' numberOfLines={2} style={{marginVertical: 4}} fontFamily={Fonts.Medium}>
                     {item.name}
                 </CustomText>
                 <View style={styles.priceContainer}>
-                        <View>
-                            <CustomText variant='h7' fontFamily={Fonts.Medium}>${item?.price}</CustomText>
-                            <CustomText variant='h7'  fontFamily={Fonts.Medium} style={{opacity: 0.8, textDecorationLine: 'line-through'}}>${item?.discountPrice}</CustomText>
+                        <View style={{marginRight: 4}}>
+                            <CustomText variant='h7' fontFamily={Fonts.Medium}>{item?.price}đ</CustomText>
+                            <CustomText variant='h7'  fontFamily={Fonts.Medium} style={{opacity: 0.8, textDecorationLine: 'line-through'}}>{item?.discountPrice}đ</CustomText>
                         </View>
                         <UniversalAdd item={item}/>
                 </View>

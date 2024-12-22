@@ -8,9 +8,9 @@ const App = () => {
 
   useEffect(() => {
     
-    StatusBar.setHidden(false);
-    StatusBar.setBarStyle('light-content');
-    StatusBar.setBackgroundColor('transparent');
+    // StatusBar.setHidden(false);
+    // StatusBar.setBarStyle('light-content');
+    // StatusBar.setBackgroundColor('transparent');
     
   }, []);
 

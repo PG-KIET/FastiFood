@@ -24,7 +24,6 @@ const ProductOrder: FC = () => {
 
     const [loading, setLoading] = useState(false)
 
-   
 
     const handlePlaceOrder = async() =>{
         if(currentOrder !== null){
@@ -67,7 +66,7 @@ const ProductOrder: FC = () => {
                 <View style={styles.flexRowBetween}>
                     <View style={styles.flexRow} >
                         <Image  source={require('@assets/icons/coupon.png')} style={{width: 25, height: 25}}/>
-                        <CustomText variant='h6' fontFamily={Fonts.SemiBold}>Use Coupons</CustomText>
+                        <CustomText variant='h6' fontFamily={Fonts.SemiBold}>Sử dụng phiếu giảm giá</CustomText>
                     </View>
                 <   Icon  name='chevron-right' size={RFValue(16)} color={Colors.text}/>
                 </View>
@@ -76,10 +75,10 @@ const ProductOrder: FC = () => {
                 <View style={styles.flexRowBetween}>
                     <View>
                         <CustomText variant='h7' fontFamily={Fonts.SemiBold}>
-                            Cancellation Policy
+                            Chính sách hủy bỏ
                         </CustomText>
                         <CustomText variant='h8' style={styles.cancelText} fontFamily={Fonts.SemiBold}>
-                            Orders cannot be cancelled once packed for delivery, In case of unexpected delays, a refund will be provided, if applicable
+                            Đơn hàng không thể hủy sau khi đóng gói để giao hàng, Trong trường hợp có sự chậm trễ ngoài ý muốn, chúng tôi sẽ hoàn lại tiền nếu có
                         </CustomText>
                     </View>
                 </View>
@@ -91,21 +90,21 @@ const ProductOrder: FC = () => {
                         <View style={styles.flexRow}>
                             <Image source={require('@assets/icons/home.png')} style={{width:20, height:20}}/>
                             <View style={{width: '70%'}}>
-                                <CustomText variant='h7' fontFamily={Fonts.Medium}>Delivery to Home</CustomText>
+                                <CustomText variant='h7' fontFamily={Fonts.Medium}>Giao hàng tận nhà</CustomText>
                                 <CustomText variant='h8' numberOfLines={2} style={{opacity: 0.6}}>{user?.address}</CustomText>
                             </View>
                         </View>
-                        <TouchableOpacity >
-                            <CustomText variant='h7' style={{color:Colors.secondary}} fontFamily={Fonts.Bold}>Change</CustomText>
-                        </TouchableOpacity>
+                        {/* <TouchableOpacity >
+                            <CustomText variant='h7' style={{color:Colors.secondary}} fontFamily={Fonts.Bold}>Thay đổi</CustomText>
+                        </TouchableOpacity> */}
                     </View>
 
                     <View style={styles.paymentGateway}>
-                        <View style={{width:'30%'}}>
-                            <CustomText variant='h8' fontFamily={Fonts.Bold} >PAY USING</CustomText>
-                            <CustomText fontFamily={Fonts.Regular} variant='h8' style={{marginTop: 2}}>Cash on Delivery</CustomText>
+                        <View style={{width:'35%'}}>
+                            <CustomText variant='h7' fontFamily={Fonts.Bold} >THANH TOÁN</CustomText>
+                            <CustomText fontFamily={Fonts.Regular} variant='h7' style={{marginTop: 2}}>Thanh toán khi nhận hàng</CustomText>
                         </View>
-                        <View style={{width:'70%'}}>
+                        <View style={{width:'65%'}}>
                             <ArrowButton
                               loading={loading}
                               price={totalItemPrice}
@@ -127,7 +126,7 @@ const ProductOrder: FC = () => {
 const styles = StyleSheet.create({
     absoluteContainer:{
         marginVertical: 15,
-        marginBottom: Platform.OS == 'ios'? 30: 50
+        marginBottom: Platform.OS == 'ios'? 30: 10
     },
     container: {
         flex: 1,
